@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SistemaFacturacion.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";   
+}
+
+<h1>Usuario</h1>
+
+<p>
+    <a asp-action="Create">Crear Usuario</a>
+</p>
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr style="text-align:center;">
+                <th>
+                    @Html.DisplayNameFor(model => model.user)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="text-align:center;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.user)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.idUsuario">Editar</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.idUsuario">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

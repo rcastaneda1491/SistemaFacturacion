@@ -1,0 +1,60 @@
+﻿@model SistemaFacturacion.Models.Producto
+
+@{
+    ViewData["Title"] = "Create";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Crear Producto</h1>
+
+<br />
+<hr />
+<div class="container">
+    <div class="row">
+        <form method="post" asp-action="Create">
+            <div class="form-group">
+                <label asp-for="nombre" class="control-labael"> </label>
+                <input asp-for="nombre" class="form-control" />
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descripcion" class="control-labael"> </label>
+                <input asp-for="descripcion" class="form-control" />
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precio" class="control-labael"> </label>
+                <input asp-for="precio" class="form-control" />
+                <span asp-validation-for="precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="costo" class="control-labael"> </label>
+                <input asp-for="costo" class="form-control" />
+                <span asp-validation-for="costo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="existencia" class="control-labael"> </label>
+                <input asp-for="existencia" class="form-control" />
+                <span asp-validation-for="existencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="activo" class="control-labael"> </label>
+                <select asp-for="activo" class="form-control">
+                    <option value="" selected>Seleccione una opcion</option>
+                    <option value="S">S</option>
+                    <option value="N">N</option>
+                </select>
+                <span asp-validation-for="activo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" /> |
+                <a asp-action="Index">Regresar a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

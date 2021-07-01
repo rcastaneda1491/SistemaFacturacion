@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SistemaFacturacion.Models.Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Productos</h1>
+
+<p>
+    <a asp-action="Create">Crear Producto</a>
+</p>
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr style="text-align:center;">
+                <th>
+                    @Html.DisplayNameFor(model => model.codigoProducto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.costo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.existencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.activo)
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="text-align:center;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.codigoProducto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.costo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.existencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.activo)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.codigoProducto">Editar</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.codigoProducto">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

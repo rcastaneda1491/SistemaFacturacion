@@ -1,0 +1,38 @@
+﻿@model SistemaFacturacion.Models.FacturaProducto
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar Factura Producto</h1>
+<br />
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="numeroFactura" />
+            <input type="hidden" asp-for="codigoProducto" />
+            <input type="hidden" asp-for="precioUnitario"/>
+            <div class="form-group">
+                <label asp-for="cantidad" class="control-label"></label>
+                <input id="cant" asp-for="cantidad" class="form-control" />
+                <span asp-validation-for="cantidad" class="text-danger"></span>
+                @if (ViewBag.Message != null)
+                {
+                    <span class="text-danger">@ViewBag.Message</span>
+                }
+            </div>
+            <div class="form-group">
+                <a href="@Url.Action("Edit","FacturaProducto",new { numeroFactura = TempData["numeroFactura"], codigoProducto = TempData["codigoProducto"], cantidad = this.Html.Display("#cant") })"> <input type="submit" value="Guardar" class="btn btn-primary" /></a> |
+                <a asp-action="Index" asp-route-id="@TempData["numeroFactura"]">Regresar a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

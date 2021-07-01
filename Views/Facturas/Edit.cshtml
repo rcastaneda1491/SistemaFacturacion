@@ -1,0 +1,50 @@
+﻿@model SistemaFacturacion.Models.Factura
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar Factura</h1>
+<br />
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="numeroFactura" />
+            <div class="form-group">
+                <label asp-for="fecha" class="control-labael"> </label>
+                <input asp-for="fecha" class="form-control" />
+                <span asp-validation-for="fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="totalFactura" class="control-labael"> </label>
+                <input asp-for="totalFactura" value="0" class="form-control" disabled />
+                <span asp-validation-for="totalFactura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="anulada" class="control-labael"> </label>
+                <select asp-for="anulada" class="form-control">
+                    <option value="" selected>Seleccione una opcion</option>
+                    <option value="S">S</option>
+                    <option value="N">N</option>
+                </select>
+                <span asp-validation-for="anulada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="codigoCliente" class="control-label"></label>
+                <select asp-for="codigoCliente" class="form-control" asp-items="ViewBag.codigoCliente"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" /> |
+                <a asp-action="Index">Regresar a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

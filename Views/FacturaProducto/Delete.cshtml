@@ -1,0 +1,43 @@
+﻿@model SistemaFacturacion.Models.FacturaProducto
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>¿Desea Eliminar el Detalle Factura?</h1>
+<br />
+<hr />
+<form asp-action="Delete">
+    <table>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.Factura.numeroFactura)</td>
+            <td>
+                @Html.DisplayFor(m => m.numeroFactura)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.Productos.codigoProducto)</td>
+            <td>
+                @Html.DisplayFor(m => m.codigoProducto)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.precioUnitario)</td>
+            <td>
+                @Html.DisplayFor(m => m.precioUnitario)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.cantidad)</td>
+            <td>
+                @Html.DisplayFor(m => m.cantidad)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="@Url.Action("ConfirmacionEliminar","FacturaProducto",new { numeroFactura = Model.numeroFactura, codigoProducto = Model.codigoProducto })"> <input type="button" value="Eliminar Detalle" class="btn btn-danger" /></a> |
+                <a asp-action="Index" asp-route-id="@TempData["numeroFactura"]">Regresar a la lista</a>
+            </td>
+        </tr>
+    </table>
+</form>

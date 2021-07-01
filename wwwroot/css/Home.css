@@ -1,0 +1,37 @@
+﻿body {
+    background-color: #969696 !important;
+}
+
+#login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    width: 50%;
+}
+
+.form-item { 
+    margin-top: 16px;
+    height: 38px;
+    padding-left: 10px;
+}
+
+@media (max-width: 998px) {
+    #login-container {
+        width: 60%;
+    }
+}
+
+@media (max-width: 769px) {
+    #login-container{
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 440px) {
+    #login-container {
+        width: 90%;
+    }
+}
