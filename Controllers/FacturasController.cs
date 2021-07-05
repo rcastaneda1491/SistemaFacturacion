@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SistemaFacturacion.DB;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SistemaFacturacion.Controllers
 {
+    [Authorize]
     public class FacturasController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Sistema_Facturacion.Controllers
 {
+    [Authorize]
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemaFacturacion.Controllers
 {
-
+    [Authorize]
     public class ClientesController : Controller
     {
         private readonly ApplicationDbContext _context;
