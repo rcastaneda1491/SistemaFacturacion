@@ -9,6 +9,8 @@
 <p>
     <a asp-action="Create">Crear Factura</a>
 </p>
+<hr />
+<br />
 <div class="table-responsive">
     <table class="table">
         <thead class="thead-dark">
@@ -20,19 +22,19 @@
                     @Html.DisplayNameFor(model => model.fecha)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.totalFactura)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.anulada)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cliente.codigoCliente)
+                    @Html.DisplayNameFor(model => model.codigoCliente)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Cliente.nombres)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Cliente.apellidos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.anulada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.totalFactura)
                 </th>
                 <th>
                     Detalle Factura
@@ -52,12 +54,6 @@
                         @Html.DisplayFor(modelItem => item.fecha)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.totalFactura)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.anulada)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.Cliente.codigoCliente)
                     </td>
                     <td>
@@ -65,6 +61,12 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Cliente.apellidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.anulada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.totalFactura)
                     </td>
                     <td>
                         <a asp-action="VerDetalleFactura" asp-route-id="@item.numeroFactura">Ver</a>

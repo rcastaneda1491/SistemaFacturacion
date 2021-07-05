@@ -9,6 +9,7 @@ namespace SistemaFacturacion.Models
     public class Usuario
     {
         [Key]
+        [Display(Name = "Id")]
         public int idUsuario { get; set; }
 
         [Required(ErrorMessage = "El campo usuario es obligatorio")]
@@ -24,7 +25,7 @@ namespace SistemaFacturacion.Models
         public string apellido { get; set; }
 
         [Required(ErrorMessage = "El campo email es obligatorio")]
-        [Display(Name = "Email")]
+        [Display(Name = "Correo")]
         public string email { get; set; }
 
         [Required(ErrorMessage = "El campo contraseña es obligatorio")]

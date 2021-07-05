@@ -5,6 +5,7 @@ namespace SistemaFacturacion.Models
     public class Cliente
     {
         [Key]
+        [Display(Name = "Id")]
         public int codigoCliente { get; set; }
 
         [Required(ErrorMessage = "El campo nombres es obligatorio")]

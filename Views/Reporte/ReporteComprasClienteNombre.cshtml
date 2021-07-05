@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SistemaFacturacion.Models.ReporteCliente>
+
+@{
+    ViewData["Title"] = "ReporteComprasClienteNombre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    function mostrarDatos() {
+        var codigoCliente = document.getElementById("cliente").value;
+
+        var url = "@Url.Action("ReporteComprasClienteNombre", "Reporte", new { codigoCliente = "param-id" })";
+        url = url.replace("param-id", codigoCliente);
+            $("#result").load(url);
+            window.location.href = url;
+    }
+</script>
+
+<h1>Reporte de Ventas por Cliente filtrado por Nombre</h1>
+
+<div class="form-group">
+    <label class="control-label"></label>
+    <select id="cliente" class="form-control" onchange="mostrarDatos()" asp-items="ViewBag.codigoCliente"></select>
+    <input id="codigo" class="form-control" type="hidden" />
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr style="text-align:center;">
+                <th>
+                    @Html.DisplayNameFor(model => model.nombres)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.apellidos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.dia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.total)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="text-align:center;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.apellidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.total)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="./css/reportesVista.css">
+
+<h1>Reportes</h1>
+<br />
+<hr />
+
+<div class="card">
+    <div class="card-header">
+        Reportes
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Ventas por Producto: Búsqueda por Nombre</h5>
+        <p class="card-text">Mostrar el monto total vendido de cada producto por el nombre seleccionado (día por día)</p>
+        @Html.ActionLink("Ver Reporte", "ReporteVentasProductosNombre", new { codigoProducto = 0 }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Reportes
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Ventas por Producto: Búsqueda por Fechas</h5>
+        <p class="card-text">Mostrar el monto total vendido de cada producto en el rango de fechas seleccionado (día por día)</p>
+        @Html.ActionLink("Ver Reporte", "ReporteVentasProductoFecha", new { fechaInicio = "1/1/1753 12:00:00", fechaFinal = "13/12/9999 11:59:59" }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Reportes
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Ventas por Producto: Búsqueda por Nombre y Fechas</h5>
+        <p class="card-text">Mostrar el monto total vendido de cada producto en el rango de fechas y nombre seleccionado (día por día)</p>
+        @Html.ActionLink("Ver Reporte", "ReporteVentasProductoNombreFecha", new { fechaInicio = "1/1/1753 12:00:00", fechaFinal = "13/12/9999 11:59:59", codigoProducto = 0 }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Reportes
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Ventas por Cliente: Búsqueda por Nombre</h5>
+        <p class="card-text">Mostrar el monto total vendido por cada cliente por el nombre seleccionado (día por día)
+        </p>
+        @Html.ActionLink("Ver Reporte", "ReporteComprasClienteNombre", new { codigoCliente = 0 }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Reportes
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Ventas por Cliente: Búsqueda por Fechas</h5>
+        <p class="card-text">Mostrar el monto total vendido por cada cliente en el rango de fechas seleccionado (día por día)</p>
+        @Html.ActionLink("Ver Reporte", "ReporteComprasClienteFecha", new { fechaInicio = "1/1/1753 12:00:00", fechaFinal = "13/12/9999 11:59:59" }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Reportes
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Ventas por Cliente: Búsqueda por Nombre y Fechas</h5>
+        <p class="card-text">Mostrar el monto total vendido por cada cliente en el rango de fechas y nombre seleccionado (día por día)</p>
+        @Html.ActionLink("Ver Reporte", "ReporteComprasClienteNombreFecha", new { fechaInicio = "1/1/1753 12:00:00", fechaFinal = "13/12/9999 11:59:59", codigoProducto = 0 }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Reportes
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Estadísticas de facturación: Búsqueda por Fechas</h5>
+        <p class="card-text">Muestra día por día la cantidad de facturas emitidas, 
+            el monto total facturado y la cantidad de productos facturados
+        </p>
+        @Html.ActionLink("Ver Reporte", "ReporteEstadisticasFacturacion", new { fechaInicio = "1/1/1753 12:00:00", fechaFinal = "13/12/9999 11:59:59" }, new { @class = "btn btn-primary" })
+    </div>
+</div>

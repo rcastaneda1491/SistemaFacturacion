@@ -16,15 +16,17 @@
         <span class="text-danger">Factura Anulada</span>
     }
 </p>
+<hr />
+<br />
 <div class="table-responsive">
     <table class="table">
         <thead class="thead-dark">
             <tr style="text-align: center">
                 <th>
-                    @Html.DisplayNameFor(model => model.Factura.numeroFactura)
+                    @Html.DisplayNameFor(model => model.numeroFactura)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Productos.codigoProducto)
+                    @Html.DisplayNameFor(model => model.codigoProducto)
                 </th>
                 <th>
                     Producto
@@ -45,35 +47,36 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr style="text-align: center">
-                <td>
-                    @item.numeroFactura
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Productos.codigoProducto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Productos.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Productos.descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.precioUnitario)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cantidad)
-                </td>
-                @if (string.Format(ViewBag.facturaAnulada) != "S")
-                {
+                <tr style="text-align: center">
                     <td>
-                        @Html.ActionLink("Editar", "Edit", new { numeroFactura = @TempData["numeroFactura"], codigoProducto = item.codigoProducto })
+                        @item.numeroFactura
                     </td>
                     <td>
-                        @Html.ActionLink("Eliminar", "Delete", new { numeroFactura = @TempData["numeroFactura"], codigoProducto = item.codigoProducto })
-                    </td>      
-                }
-            </tr>
+                        @Html.DisplayFor(modelItem => item.Productos.codigoProducto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Productos.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Productos.descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precioUnitario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cantidad)
+                    </td>
+                    @if (string.Format(ViewBag.facturaAnulada) != "S")
+                    {
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { numeroFactura = @TempData["numeroFactura"], codigoProducto = item.codigoProducto })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Eliminar", "Delete", new { numeroFactura = @TempData["numeroFactura"], codigoProducto = item.codigoProducto })
+                        </td>
+
+                    }
+                </tr>
             }
         </tbody>
     </table>

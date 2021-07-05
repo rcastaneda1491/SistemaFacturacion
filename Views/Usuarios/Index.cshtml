@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";   
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Usuario</h1>
@@ -10,10 +10,15 @@
 <p>
     <a asp-action="Create">Crear Usuario</a>
 </p>
+<hr />
+<br />
 <div class="table-responsive">
     <table class="table">
         <thead class="thead-dark">
             <tr style="text-align:center;">
+                <th>
+                    @Html.DisplayNameFor(model => model.idUsuario)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.user)
                 </th>
@@ -37,6 +42,9 @@
             @foreach (var item in Model)
             {
                 <tr style="text-align:center;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idUsuario)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.user)
                     </td>

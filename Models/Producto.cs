@@ -6,6 +6,7 @@ namespace SistemaFacturacion.Models
     public class Producto
     {
         [Key]
+        [Display(Name = "Id")]
         public int codigoProducto { get; set; }
 
         [Required(ErrorMessage = "El campo nombre es obligatorio")]

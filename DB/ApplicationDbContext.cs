@@ -19,6 +19,9 @@ namespace SistemaFacturacion.DB
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Factura> Facturas { get; set; }
         public DbSet<FacturaProducto> FacturaProducto { get; set; }
+        public DbSet<ReporteProducto> ReporteProductos { get; set; }
+        public DbSet<ReporteCliente> ReporteClientes { get; set; }
+        public DbSet<ReporteFactura> ReporteFacturas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

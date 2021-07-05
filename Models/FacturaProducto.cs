@@ -11,7 +11,7 @@ namespace SistemaFacturacion.Models
         public int cantidad { get; set; }
 
         [Required(ErrorMessage = "El campo precio unitario es obligatorio")]
-        [Display(Name = "PrecioUnitario")]
+        [Display(Name = "Precio Unitario")]
         public double precioUnitario { get; set; }
         
 
@@ -25,7 +25,7 @@ namespace SistemaFacturacion.Models
 
 
         [Required(ErrorMessage = "El campo codigo producto es obligatorio")]    
-        [Display(Name = "CodigoProducto")]
+        [Display(Name = "Codigo Producto")]
         [Key, Column(Order = 1)]
         [ForeignKey("codigoProducto")]
         public int? codigoProducto { get; set; }

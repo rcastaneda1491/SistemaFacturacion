@@ -140,7 +140,7 @@ namespace SistemaFacturacion.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("HttpError404", new { erro = e });
+                return RedirectToAction("HttpError404");
             }
         }
 
@@ -154,6 +154,12 @@ namespace SistemaFacturacion.Controllers
             var factura = await _context.Facturas.FindAsync(id);
 
             return RedirectToAction("Index", "FacturaProducto", new { id = factura.numeroFactura });
+        }
+
+        public ActionResult HttpError404(Exception erro)
+        {
+            TempData["Error"] = erro.Message;
+            return View();
         }
     }
 }

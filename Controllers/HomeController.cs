@@ -59,7 +59,7 @@ namespace SistemaFacturacion.Controllers
             }
             else
             {
-                return BadRequest(); // si el usuario no es valido envia un badrequest como respuesta
+                return RedirectToAction("HttpError404"); // si el usuario no es valido envia un badrequest como respuesta
             }
         }
 
@@ -67,6 +67,12 @@ namespace SistemaFacturacion.Controllers
         {
             await HttpContext.SignOutAsync(); //elimina la cookie creada 
             return RedirectToAction("Index", "Home"); // regresa a una pagina especifica 
+        }
+
+        public ActionResult HttpError404(Exception erro)
+        {
+            TempData["Error"] = erro.Message;
+            return View();
         }
     }
 }
